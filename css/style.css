@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    height: 100vh;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+}
+.grid-container{
+    width: 100%;
+    max-width: 1100px;
+    padding: 40px 60px;
+    background-color: #aaa;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows:208px 208px 208px;
+    grid-template-areas: 
+    "column1 column2 column3"
+    "column1 column2 column3"
+    "column1 column4 column4";
+    gap: 32px; 
+}
+.grid-container > *, .inner-item{
+    display: grid;
+    gap: 32px;
+}
+
+.inner-item{
+    grid-template-columns: 1fr 1fr;
+}
+.inner-item:nth-child(1){
+    grid-template-columns: 0.90fr 2fr;
+}
+.grid-item{
+    border-radius: 10px;
+}
+
+
+.item1{
+    grid-area: column1;
+}
+.item2{
+    grid-area: column2;
+}
+.item3{
+    grid-area: column3;
+}
+.item4{
+    grid-area: column4;
+} 
+
+
+.create{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    background-color: #F9EEE2;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+.create h1{
+    padding-bottom: 24px;
+    width: 192px;
+}
+.create img{
+    width: 190px;
+}
+.content{
+    background-color: #FFCC6A;
+}
+.media{
+    background-color: #7551DC;
+}
+.manage{
+    background-color: #fff
+}
+.post{
+    background-color: #FFCC6A;
+}
+.schedule{
+    background-color: #DBD1FC;
+}
+.audience{
+    background-color: #fff;
+}
+.followers{
+    background-color: #7551DC;
+}
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 950px) {
+    .grid-container{
+        padding-left: 5%;
+        padding-right: 5%;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows:repeat(4, 208px);
+        grid-template-areas: 
+                "column2 column3"
+                "column2 column3"
+                "column4 column4"
+                "column1 column1"
+        ;
+    }
+}
+@media screen and (max-width: 680px) {
+    .grid-container{
+        grid-template-columns: 1fr;
+        grid-template-rows:auto auto;
+        grid-template-areas: 
+                "column2"
+                "column3"
+                "column4"
+                "column1"
+        ;
+    }
+    .item1{
+        grid-template-columns: 1fr 1fr;
+    }
+    .inner-item, 
+    .inner-item:nth-child(1){
+        grid-template-columns: 1fr;
+    }
+}
+@media screen and (max-width: 430px){
+    .item1{
+        grid-template-columns: 1fr;
+    }
+}
